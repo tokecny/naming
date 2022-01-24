@@ -1,110 +1,31 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!-- <script src="https://psyc241.ucsd.edu/Chaipat/TB_PCL_vWM_delays/js/vismemCC.js"></script> -->
-<script src="https://timbrady.org/turk/TimTurkTools.js"></script>
-</script src="js/vismemCC_simon.js"></script>
+<script src = "https://timbrady.org/turk/TimTurkTools.js"></script>
+</script src = "js/vismemCC_simon.js"></script>
+<link rel = "stylesheet" href = "style.css">
+
 <!--
 //////////////////////////////////////////////////////////////////////////////////
 -->
-
-<style>
-    .trialDiv {
-      /* border: 2px solid gray;*/
-      border: 0px;
-      padding: auto;
-      width: auto;
-      position: relative;
-      top: 50px;
-      left: 50%;
-      /* bring your own prefixes */
-      transform: translate(-50%, -50%);
-      text-align: center;
-      display: none;
-    }
-
-    body {
-      font-family: Arial, Helvetica;
-      font-size: 12pt;
-      margin-top: 100px;
-    }
-
-    #submitButton {
-      display: none;
-    }
-
-    #instructions {
-      width: 60%;
-      margin: 0 auto;
-      text-align: center;
-      margin-top: 100px;
-    }
-
-    #startExperiment {
-      color: rgb(200,200,200);
-      text-decoration: none;
-    }
-
-    #startExperiment:hover{
-      color: white;
-    }
-
-    #startExperimentButton {
-      width: 200px;
-      text-align: center;
-      border: 4px outset gray;
-      background: gray;
-      padding: 5px;
-      margin: 0 auto;
-    }
-    .continueExp:hover{
-      color: white;
-    }
-
-    .continueExp {
-      color: rgb(200,200,200);
-      text-decoration: none;
-    }
-
-    .continueButton {
-      width: 100px;
-      text-align: center;
-      border: 4px outset gray;
-      background: gray;
-      padding: 5px;
-      margin: 0 auto;
-    }
-
-    #meter{
-    width: 10cm;
-    height: 10cm;
-    }
-
-    .instr {
-      display: none;
-    }
-    #done {
-    display: none;
-    }
-
-</style>
 
 <!--
 //////////////////////////////////////////////////////////////////////////////////
 -->
 
 <!--say something when done -->
-<div id="done" class="taskDiv">
+<div id = "done" class = "taskDiv">
 Saving data...
 </div>
 
 <!-- make submit button -->
-<input type="submit" value="Submit" name="submitButton" id="submitButton" style="display: none">
+<input type = "submit" value = "Submit" name = "submitButton" id = "submitButton" style = "display: none">
 
 <!--
 //////////////////////////////////////////////////////////////////////////////////
 -->
 
 <!-- make instruction -->
-<div id="instructions">
+<div id = "instructions">
   <h2> สวัสดีชาวโลก 
     <br> ต่อไปเป็นการทดสอบการทำงานสมองของคุณ ช่วยพยายามกันหน่อยนะ</h2>
   <p>เดี๋ยวจะมีวงกลมหลายวงโผล่ขึ้นมา <b>พยายามจำกันหน่อย</b> แล้วเดี๋ยวจะต้องตอบทีหลังนะ</p>
@@ -112,10 +33,10 @@ Saving data...
   <p> <b> ถ้าอยากโดนก็กดขยายหน้าจอให้ใหญ่เบิ้มๆหน่อยนะ ขอสัก 400 pixels </b> 
   <br> กด <b>F11</b> สิจ๊ะถ้าตัวเธอว์ใช้ windows
   </p>
-  <p style="font:5px"> กดปุ่มยินยอมถ้าเธอว์พร้อมจะลุยมาตั้งนานแล้ว </p>
+  <p style = "font:5px"> กดปุ่มยินยอมถ้าเธอว์พร้อมจะลุยมาตั้งนานแล้ว </p>
   
-  <div id="startExperimentButton">
-    <a href="#" id="startExperiment">เอาเลยเถอะ</a>
+  <div id = "startExperimentButton">
+    <a href = "#" id="startExperiment">เอาเลยเถอะ</a>
   </div>
   
   <p></p>
@@ -126,18 +47,18 @@ Saving data...
 //////////////////////////////////////////////////////////////////////////////////
 -->
 <!-- set CANVAS -->
-<div align="center">
-    <canvas id="myCanvas"  width="200px" height="200px" style="cursor:default;border:none;outline-width:2px;outline-color:#000000">
+<div align = "center">
+    <canvas id = "myCanvas"  width = "200px" height = "200px" style = "cursor:default;border:none;outline-width:2px;outline-color:#000000">
     </canvas>
-    <p id="instr"></p>
+    <p id = "instr"></p>
 </div>
 
 <!--
 //////////////////////////////////////////////////////////////////////////////////
 -->
-<div id='frame1'; class='trialDiv'>
+<div id = 'frame1'; class = 'trialDiv'>
   <div>
-    <img id = "picture" src = 'stimuliTryout/acousticguitar.jpg' ,height="30%", width="30%">
+    <img id = "picture" src = 'stimuliTryout/acousticguitar.jpg' ,height = "30%", width = "30%">
   </div>
     <br>
     <br>
@@ -171,22 +92,22 @@ Saving data...
 //////////////////////////////////////////////////////////////////////////////////
 -->
 
-<p id="debug"></p>
+<p id = "debug"></p>
 
-        <script type="text/javascript">
+        <script type = "text/javascript">
           
           // Settings
           let imgSrc = 'stimuliTryout/';
           let imgList = ['acousticguitar.jpg','apple.jpg','arm.jpg','asianelephant.jpg','axe.jpg','balloon.jpg','banana.jpg','bed.jpg','belt.jpg','bicycle.jpg','birdnest.jpg','birthdaycandle.jpg','blackbear.jpg','book.jpg','bowl.jpg','boxingglove.jpg','broom.jpg','bus.jpg','butterfly.jpg','button.jpg','cabbage.jpg','cane.jpg','car.jpg','cauliflower.jpg','chain.jpg','chair.jpg','chilipeppers.jpg','clock.jpg','comb.jpg','computermouse.jpg','corn.jpg','couch.jpg','cow.jpg','crab.jpg','crocodile.jpg','cucumber.jpg','desk.jpg','dice.jpg','dragonfly.jpg','duck.jpg','ear.jpg','egg.jpg','elbow.jpg','envelope.jpg','eraser.jpg','eye.jpg','feather.jpg','flashlight.jpg','flipflop.jpg','foot.jpg','fork.jpg','freighttruck.jpg','fridge.jpg','fryingpan.jpg','garbagebin.jpg','giftbag.jpg','giraffe.jpg','glasses.jpg','glassmop.jpg','grandpiano.jpg','grape.jpg','greatwhiteshark.jpg','hairband.jpg','hairdryer.jpg','hammer.jpg','hand.jpg','handcuffs.jpg','hanger.jpg','hat.jpg','headphones.jpg','helicopter.jpg','hibiscusflower.jpg','highheelshoe.jpg','honeybee.jpg','horse.jpg','iron.jpg','jackrabbit.jpg','jeans.jpg','kalashnikovrifle.jpg','key.jpg','knee.jpg','knife.jpg','ladle.jpg','ladybug.jpg','laptop.jpg','leaf.jpg','leg.jpg','lighter.jpg','lion.jpg','lip.jpg','lizard.jpg','lock.jpg','magnifyingglass.jpg','mango.jpg','mangosteen.jpg','manshoe.jpg','measuringtape.jpg','microphone.jpg','microwave.jpg','motorcycle.jpg','mouse.jpg','mug.jpg','mushroom.jpg','nail.jpg','nailclipper.jpg','nose.jpg','onion.jpg','orange.jpg','paintbrush.jpg','paintcan.jpg','panda.jpg','papaya.jpg','paperclip.jpg','parkbench.jpg','peacock.jpg','peanut.jpg','pen.jpg','pencil.jpg','pencilsharpener.jpg','pepper.jpg','pictureframe.jpg','pig.jpg','pigeon.jpg','pillow.jpg','pineapple.jpg','pingpongpaddle.jpg','plasticbasket.jpg','plate.jpg','pot.jpg','powerline.jpg','puzzlepiece.jpg','qtip.jpg','rambutan.jpg','razor.jpg','remotecontrol.jpg','rhinoceros.jpg','ribbon.jpg','rice.jpg','ring.jpg','rooster.jpg','rose.jpg','ruler.jpg','safetypin.jpg','saw.jpg','scarf.jpg','scissors.jpg','scorpion.jpg','scotchtape.jpg','screwdriver.jpg','scrubbingbrush.jpg','sheep.jpg','shoppingcart.jpg','shoulder.jpg','shrimp.jpg','siamesecat.jpg','sieve.jpg','soccerball.jpg','sock.jpg','speaker.jpg','sponge.jpg','spoon.jpg','sportshorts.jpg','squid.jpg','squirrel.jpg','stairs.jpg','starfish.jpg','strawberry.jpg','stuffedanimal.jpg','tank.jpg','tennisball.jpg','thaigreencurry.jpg','thaihotandsoursoup.jpg','thainoodlestirfry.jpg','thread.jpg','tie.jpg','tiger.jpg','toaster.jpg','toilet.jpg','toothbrush.jpg','tortoise.jpg','towel.jpg','tree.jpg','tshirt.jpg','tupperware.jpg','tweezers.jpg','umbrella.jpg','watch.jpg','waterbottle.jpg','waterbuffalo.jpg','watermelon.jpg','window.jpg','zebra.jpg','zipper.jpg'];
           Shuffle(imgList)
           var code = "CC" + Math.round(Math.random()*100000) + "92";
-          var task='Naming';
-          var c1=document.getElementById("myCanvas");
-          var ctx1=c1.getContext("2d");   
-          var centerX=c1.width/2;
-          var centerY=c1.height/2;   
-          var width=c1.width;
-          var height=c1.height;
+          var task = 'Naming';
+          var c1 = document.getElementById("myCanvas");
+          var ctx1 = c1.getContext("2d");   
+          var centerX = c1.width/2;
+          var centerY = c1.height/2;   
+          var width = c1.width;
+          var height = c1.height;
           var tempevent = [];
           var curTrial = 0; 
           var isTest = false;
@@ -231,16 +152,16 @@ Saving data...
           }
 
 
-          var st=null;
+          var st = null;
           function startTime(){
               var d = new Date();
-              st=d.getTime();
+              st = d.getTime();
           }
 
           function endTime(){
               
               var d = new Date();
-              timeDif=d.getTime()-st;
+              timeDif = d.getTime()-st;
               return timeDif;
           }
 
@@ -362,7 +283,6 @@ Saving data...
           // =========================================================
        </script>
 
-       kaitok test
 
 
 

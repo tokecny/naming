@@ -1,0 +1,78 @@
+.trialDiv {
+    /* border: 2px solid gray;*/
+    border: 0px;
+    padding: auto;
+    width: auto;
+    position: relative;
+    top: 50px;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: none;
+}
+
+body {
+    font-family: Arial, Helvetica;
+    font-size: 12pt;
+    margin-top: 100px;
+}
+
+#submitButton {
+    display: none;  
+}
+
+#instructions {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 100px;
+}
+
+#startExperiment {
+    color: rgb(200,200,200);
+    text-decoration: none;
+}
+
+#startExperiment:hover{
+    color: white;
+}
+
+#startExperimentButton {
+    width: 200px;
+    text-align: center;
+    border: 4px outset gray;
+    background: gray;
+    padding: 5px;
+    margin: 0 auto;
+}
+.continueExp:hover{
+    color: white;
+}
+
+.continueExp {
+    color: rgb(200,200,200);
+    text-decoration: none;
+}
+
+.continueButton {
+    width: 100px;
+    text-align: center;
+    border: 4px outset gray;
+    background: gray;
+    padding: 5px;
+    margin: 0 auto;
+}
+
+#meter{
+  width: 10cm;
+  height: 10cm;
+}
+
+.instr {
+    display: none;
+}
+
+#done {
+  display: none;
+}
