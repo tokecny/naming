@@ -59,7 +59,7 @@
       <br>
       
       <button onclick = "previous();"> previous </button>
-      <button onclick = "next();" type = "submit"> next </button> 
+      <button onclick = "beforeNext();" type = "submit"> next </button> 
       <br>
       <br>
       <form action = "https://httpbin.org/post" method = "POST">
@@ -67,9 +67,9 @@
           <label for = "inputNaming">โปรดกรอกชื่อภาพนี้</label>
         </p>
         <p>
-          <input id = "inputNaming" type = "text" name = naming>
+          <input id = "inputNaming" type = "text" name = "naming">
         </p>
-        <p>
+        <p id = "allInputSimilarity">
           <input id = "inputSimilarity1" type = "radio" name = "similarity" value = "very dissimilarity"><label for = "input-similarity-1">1</label>
           <input id = "inputSimilarity2" type = "radio" name = "similarity" value = "dissimilarity"><label for = "input-similarity-2">2</label>
           <input id = "inputSimilarity3" type = "radio" name = "similarity" value = "neutral"><label for = "input-similarity-3">3</label>

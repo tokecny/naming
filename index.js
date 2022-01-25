@@ -10,12 +10,17 @@ var st = null;
 
 // Settings
 
-for (i = 0; i < imgList.length; i++){
-    similarity[i] = 9;
-    naming[i] = "ยังไม่ตอบเลยอะ";
-  }
+for (i = 0; i < nTrials; i++){
+    similarity[i] = 99;
+    naming[i] = "";
+}
 
-function shuffle(array) {
+for (i = 1; i < 6; i++){
+var eachInputSimilarity = "inputSimilarity" + i;
+var eachSimilarity = document.getElementById(eachInputSimilarity);
+}
+
+function shuffle(array){
     var currentIndex = array.length, temporaryValue, randomIndex;
 
 // While there remain elements to shuffle...
@@ -35,7 +40,7 @@ function shuffle(array) {
 
 function makeBackground(bgcolor){
 // Fill background
-    makeRectangle('bg',centerX,centerX,400,400,false,bgcolor,bgcolor);
+    makeRectangle('bg', centerX, centerX, 400, 400, false, bgcolor, bgcolor);
     
 }
 
@@ -47,20 +52,20 @@ function startTime(){
 function endTime(){
     
     var d = new Date();
-    timeDif = d.getTime()-st;
+    timeDif = d.getTime() - st;
     return timeDif;
 }
 
 function trialIsOver() {
     
-    var curtrialStruct = {};
+    var curTrialStruct = {};
     
-    curtrialStruct.image = imgList[curTrial];
-    curtrialStruct.naming = naming[curTrial]
-    curtrialStruct.similarity = similarity[curTrial]
-    trialStruct.push(curtrialStruct);
+    curTrialStruct.image = imgList[curTrial];
+    curTrialStruct.naming = naming[curTrial]
+    curTrialStruct.similarity = similarity[curTrial]
+    trialStruct.push(curTrialStruct);
 
-    curTrial = curTrial+1 ; 
+    curTrial = curTrial + 1 ; 
 
 
     if (curTrial >= nTrials){
@@ -117,43 +122,50 @@ function checkNaming(){
     var eachInputNaming = document.getElementById("inputNaming").value;
     console.log(eachInputNaming);
     naming[curTrial] = eachInputNaming;
-    document.getElementById("inputNaming").value = "";
-}
+    //document.getElementById("inputNaming").value = "";
+} 
 
 function checkSimilarity(){
     for (i = 1; i < 6; i++){
         var eachInputSimilarity = "inputSimilarity" + i;
         var eachSimilarity = document.getElementById(eachInputSimilarity);
         if (eachSimilarity.checked){
-        console.log(i);
-        similarity[curTrial] = i;
-        eachSimilarity.checked = false;
-        };
+            similarity[curTrial] = i;
+            eachSimilarity.checked = false;
+        }
     }
-}
+} 
 
 function TOK(){
-    $('#instructions').hide()
-    $('#frame1').show()
-    console.log(curTrial)
+    $('#instructions').hide();
+    $('#frame1').show();
+    console.log(curTrial);
   }
 
 function previous(){
     if (curTrial != 0){
-        curTrial = curTrial-1;
+        curTrial = curTrial - 1;
         var picture = document.getElementById('picture');
         picture.src = imgSrc + imgList[curTrial];
         console.log(curTrial);
     }  
 }
 
-function next(){
-    if (curTrial < imgList.length){
+function beforeNext(){
+    // if (document.getElementById("inputNaming").value != ""){
         checkSimilarity();
         checkNaming();
+    if (similarity[curTrial] < 99 && naming[curTrial] != ""){
+        next();
+    }     
+    
+}
+    
+function next(){
+    if (curTrial < imgList.length){
         trialIsOver();
         console.log(curTrial);
-    }
+    } 
 }
 
 function initPicture(){
@@ -166,4 +178,4 @@ document.addEventListener("DOMContentLoaded", function () {
     $('#startExperiment').click(TOK);
 })
 
-// ========================================================= 
+// =======================================================
