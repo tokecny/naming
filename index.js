@@ -50,27 +50,21 @@ function startTime(){
 }
 
 function endTime(){
-    
     var d = new Date();
     timeDif = d.getTime() - st;
     return timeDif;
 }
 
 function trialIsOver() {
-    
     var curTrialStruct = {};
-    
     curTrialStruct.image = imgList[curTrial];
     curTrialStruct.naming = naming[curTrial]
     curTrialStruct.similarity = similarity[curTrial]
     trialStruct.push(curTrialStruct);
-
     curTrial = curTrial + 1 ; 
-
 
     if (curTrial >= nTrials){
         Done();
-        
     } else {
         startTrialTime = new Date();
         var picture = document.getElementById('picture');
@@ -79,7 +73,6 @@ function trialIsOver() {
 }
 
 function Done() {
-
     $('#frame1').hide();
     $("#done").show();
 
@@ -122,13 +115,14 @@ function checkNaming(){
     var eachInputNaming = document.getElementById("inputNaming").value;
     console.log(eachInputNaming);
     naming[curTrial] = eachInputNaming;
-    //document.getElementById("inputNaming").value = "";
+    // document.getElementById("inputNaming").value = "";
 } 
 
 function checkSimilarity(){
     for (i = 1; i < 6; i++){
         var eachInputSimilarity = "inputSimilarity" + i;
         var eachSimilarity = document.getElementById(eachInputSimilarity);
+
         if (eachSimilarity.checked){
             similarity[curTrial] = i;
             eachSimilarity.checked = false;
@@ -152,16 +146,30 @@ function previous(){
 }
 
 function beforeNext(){
-    // if (document.getElementById("inputNaming").value != ""){
         checkSimilarity();
         checkNaming();
+
     if (similarity[curTrial] < 99 && naming[curTrial] != ""){
         next();
     }     
     
 }
+
+function pressKeyboard(event){
+    if (event.key === "Alt"){
+        beforeNext();
+    } else if (event.key === 'Escape') {
+        previous();
+    }
+}
+
+document.addEventListener('keydown', pressKeyboard);
     
 function next(){
+    var eachInputNaming = document.getElementById("inputNaming").value;
+    naming[curTrial] = eachInputNaming;
+    document.getElementById("inputNaming").value = "";
+
     if (curTrial < imgList.length){
         trialIsOver();
         console.log(curTrial);

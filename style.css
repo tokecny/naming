@@ -18,16 +18,17 @@ body {
     margin-top: 100px;
 }
 
-#submitButton {
-    display: none;  
-}
-
 #instructions {
     width: 60%;
     margin: 0 auto;
     text-align: center;
     margin-top: 100px;
 }
+
+#submitButton {
+    display: none;  
+}
+
 
 #startExperiment {
     color: rgb(200,200,200);
@@ -46,22 +47,19 @@ body {
     padding: 5px;
     margin: 0 auto;
 }
-.continueExp:hover{
-    color: white;
+
+#myCanvas {
+    width: 200px;
+    height: 150px;
+    cursor: default;
+    border: none;
+    outline-width: 2px;
+    outline-color: black;
 }
 
-.continueExp {
-    color: rgb(200,200,200);
-    text-decoration: none;
-}
-
-.continueButton {
-    width: 100px;
-    text-align: center;
-    border: 4px outset gray;
-    background: gray;
-    padding: 5px;
-    margin: 0 auto;
+#picture {
+    width: 30%;
+    height: 30%;
 }
 
 #meter{
