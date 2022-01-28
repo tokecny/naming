@@ -132,6 +132,7 @@ function checkSimilarity(){
 
 function TOK(){
     $('#instructions').hide();
+    $('#startExperimentButton').hide();
     $('#frame1').show();
     console.log(curTrial);
   }
